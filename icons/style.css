@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+@import url('./demo-files/style.css');
+
+:root {
+    --accent: #f52a2b;
+    --grey_light: #bcbcbc;
+    --grey_dark: #7c8080;
+    --bg: #e5e5e7;
+    --dark: #020216;
+    --gradient_primary: linier-gradient(to right, #fea13e, var(--accent));
+    --gradient_secondary: linier-gradient(to right, var(--grey_light), var(--grey_dark));
+
+    --transition: all 0.3s ease-in-out;
+}
+    
+
+body {
+    background-color: var(--bg);
+    font-family: 'Rubik', sans-serif;
+
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    min-height: 100vh;
+}
+.wrapper > div {
+    padding: 32px;
+}
+
+/* UI Kit */
+/* Input */
+.input {
+    width: 100%;
+    background-color: var(--bg);
+    transition: var(--transition);
+    border: 3px solid var(--grey_light);
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.input:focus-within {
+    border-radius: 16px;
+    border-color: white;
+    background-color: #fff;
+}
+
+.input input {
+    outline: none;
+    background-color: var(--bg);
+    border: none;
+    transition: var(--transition);
+
+}
