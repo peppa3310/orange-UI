@@ -7,8 +7,8 @@
     --grey_dark: #7c8080;
     --bg: #e5e5e7;
     --dark: #020216;
-    --gradient_primary: linier-gradient(to right, #fea13e, var(--accent));
-    --gradient_secondary: linier-gradient(to right, var(--grey_light), var(--grey_dark));
+    --primary_gradient: linier-gradient( to right, #fea13e, var(--accent));
+    --gradient_secondary: linier-gradient( to right, var(--grey_light), var(--grey_dark));
 
     --transition: all 0.3s ease-in-out;
 }
@@ -29,16 +29,27 @@ body {
     padding: 32px;
 }
 
+.wrapper > div > *:not(:last-child) {
+    margin-bottom: 16px;
+}
+
 /* UI Kit */
 /* Input */
 .input {
     width: 100%;
+    display: block;
     background-color: var(--bg);
     transition: var(--transition);
     border: 3px solid var(--grey_light);
-    padding: 12px;
+    padding-left: 12px;
     border-radius: 8px;
     outline: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow: hidden;
+    font-weight: 300;
+    color: var(--grey_dark);
 }
 
 .input:focus-within {
@@ -51,6 +62,92 @@ body {
     outline: none;
     background-color: var(--bg);
     border: none;
+    padding: 12px;  
+    padding-left: 0;
+    font-size: 1em;
+    flex-grow: 1;
     transition: var(--transition);
-
 }
+
+.input:focus-within input {
+    background-color: #fff;
+}
+
+/* Button */
+.button,
+.selectbox_selected {
+    padding: 14px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(to right,  #fea13e, #f52a2b);
+    color: white;
+    font-weight: 300;
+}
+
+/* Selectbox */
+.selectbox {
+    cursor: pointer;
+    border-radius: 16px;
+    overflow: hidden;
+    color: white;
+    font-weight: 300;
+    transition: var(--transition);
+}
+.selectbox_selected {
+    position: relative;
+    padding: 22px 48px;
+    min-width: max-content;
+    text-align: left;
+}
+.selectbox_selected > span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -9px;
+    transition: var(--transition);
+}
+.ic_arrow_down {
+    font-size: 0.8em;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: -0.4em;
+}
+.selectbox_list {
+    padding: 0 12px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.selectbox_item {
+    padding: 10px 24px;
+    font-size: 14px;
+    transition: var(--transition);
+}
+.selectbox_item:hover,
+.selectbox_item.active {
+    background-color: var(--accent);
+    border-radius: 100px;
+}
+.selectbox_item:not(:last-child) {
+    margin-bottom: 4px;
+}
+.selectbox.open {
+    border-radius: 24px;
+    background: var(--dark);
+    font-size: 14px;
+}
+.selectbox.open .selectbox_selected {
+    background: var(--dark);
+    text-align: left;
+    padding-left: 36px;
+}
+.selectbox.open .selectbox_selected > span {
+    left: 36px;
+    transform: translateX(0);
+}
+.selectbox.open .selectbox_list {
+    padding: 0 12px 24px;
+    max-height: max-content;
+}  
